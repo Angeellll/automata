@@ -9,6 +9,7 @@ import Footer from "../Components/Footer";
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
+  overflow: auto;
 `;
 
 const Title = styled.h1`
