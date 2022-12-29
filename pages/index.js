@@ -1,8 +1,9 @@
-import React from "react";
+import React from 'react'
 import styled from "styled-components";
-import Header from "../Components/Header";
-import Input from "../Components/Inputs";
+import Header from '../Components/Header'
+import Input from '../Components/Inputs'
 import Result from "../Components/Result";
+import History from "../Components/History";
 import Footer from "../Components/Footer";
 
 const Wrapper = styled.div`
@@ -10,39 +11,23 @@ const Wrapper = styled.div`
   flex-direction: column;
 `;
 
-const XWrapper = styled.div`
-  display: flex;
-  flex-direction: row;
-  margin-left: 5vw;
-  margin-right: 5vw;
-
-  @media only screen and (max-width: 600px) {
-    display: flex;
-    flex-direction: column;
-}
-`;
-
 const Title = styled.h1`
   font-weight: 800;
+  font-size: 18px;
   text-align: center;
+  margin-bottom: -5px;
+  margin-top: 55px;
 `;
 
 export default function index() {
   return (
-    <Wrapper>
-      <Header />
-      <Title>DENOMINATION OF INTERNATIONAL CURRENCY</Title>
-
       <Wrapper>
-        <XWrapper>
-          <form>
-          <Input/>
-          </form>
-          <Result />
-        </XWrapper>
-      </Wrapper>
-
+      <Header/>
+      <Title>DENOMINATION OF INTERNATIONAL CURRENCY</Title>
+      <Input/>
+      <Result/>
+      <History/>
       <Footer />
-    </Wrapper>
-  );
+      </Wrapper>
+  )
 }

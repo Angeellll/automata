@@ -27,8 +27,8 @@ const Modal = ({ show, onClose, children, title }) => {
 
     const StyledModal = styled.div`
     background: white;
-    width: 500px;
-    height: 600px;
+    width: 80vw;
+    height: 80vh;
     border-radius: 15px;
     padding: 15px;
   `;
@@ -45,6 +45,7 @@ const Modal = ({ show, onClose, children, title }) => {
   `;
 
     const Cancel = styled.a`
+    font-size: 15px;
     color: black;
   `;
 

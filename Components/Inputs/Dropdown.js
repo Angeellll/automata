@@ -1,9 +1,9 @@
-import React from "react";
+import React, {useState} from "react";
 import styled from "styled-components";
 
 const Select = styled.select`
   height: 30px;
-  width: 190px;
+  width: 100%;
   border-radius: 5px;
   border: 1px solid gray;
   font-size: 15px;
@@ -30,10 +30,14 @@ const Select = styled.select`
 `;
 
 export default function Dropdown() {
+  const [selected, setSelected] = useState("default");
+
   return (
     <>
-      <Select>
-        <option selected disabled>Select Currency:</option>
+      <Select value={selected}
+      onChange={(e) => setSelected(e.target.value)}
+      >
+        <option value="default" disabled>Select Currency:</option>
         <option value="PHP">Philippine Peso (PHP)</option>
         <option value="USD">US Dollar (USD)</option>
         <option value="EUR">Euro (EUR)</option>

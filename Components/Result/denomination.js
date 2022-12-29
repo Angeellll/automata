@@ -1,27 +1,33 @@
 import styled from "styled-components";
 
 const Container = styled.div`
+    display: flex;
+    flex-direction: column;
     background-color: #1E3999;
     flex: 1;
     border-radius: 10px;
+    width: 100%;
     margin-right: 5vw;
 `;
 
 const Title = styled.h5`
   font-weight: 500;
-  font-size: 16px;
+  font-size: 12px;
   color: white;
-  margin-top: 15px;
-  margin-bottom: 10px;
+  margin-top: 10px;
   text-align: center;
+  padding-left: 5px;
+  padding-right: 5px;
 `;
 
 const Table = styled.table`
   border: none;
   margin: auto;
+  margin-top: -10px;
+  width: 20vw;
 
   td {
-    height: 120px
+    height: 100px
   }
 `;
 
@@ -30,7 +36,7 @@ const Times = styled.h1`
   color: white;
   text-align: center;
   font-style: italic;
-  font-size: 33px;
+  font-size: 18px;
 `;
 
 
@@ -56,7 +62,7 @@ export default function denomination() {
             </td>
           </tr>
         </tbody>
-      </Table>s
+      </Table>
     </Container>
   )
 }

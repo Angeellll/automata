@@ -4,14 +4,12 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   margin-left: 5vw;
-
-
 `;
 
 const Title = styled.h5`
   font-weight: 600;
   font-style: italic;
-  font-size: 15px;
+  font-size: 14px;
   margin-bottom: 8px;
 `;
 
@@ -22,25 +20,10 @@ const Table = styled.table`
   td {
     font-weight: 400;
     font-style: italic;
-    font-size: 15px;
+    font-size: 12px;
   }
 `;
 
-// const Table = () => (
-//   <div>
-//     <table>
-//       <tbody>
-//         <tr>
-//           {history.amount.map(item =>
-//               <td key={item.amount}>
-//                 {item}
-//               </td>
-//             )}
-//         </tr>
-//       </tbody>
-//     </table>
-//   </div>
-// );
 
 export default function index({ data }) {
   return (

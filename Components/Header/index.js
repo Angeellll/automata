@@ -3,27 +3,31 @@ import { Icon } from "@iconify/react";
 import Rates from "../Rates"
 import React, { useState } from "react";
 
-
-const Text = ["Flash", "Exchange", "Rates"]
-
 const Wrapper = styled.div`
-    display: flex;
-    justify-content: stretch;
     background-color: #182467;
+    height: 40px;
     color: #ffff;
+    position: fixed;
+    top: 0;
+    width: 100%;
 `;
 
 const Flash = styled.div`
-    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 `;
 
 const List = styled.div`
-    position: absolute;
-    right: 2vw;
+    color: white;
+    position: fixed;
+    right: 5vw;
+    top: 0;
 `;
 
 const Title = styled.h1`
     font-weight: 600;
+    font-size: 18px;
 `;
 
 const Animation = styled.span`

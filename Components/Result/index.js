@@ -5,34 +5,31 @@ import styled from "styled-components";
 const Wrapper = styled.div`
     display: flex;
     flex-direction: column;
-    width: 50vw;
-    margin: 5px;
-    position: fixed;
-    right: 0;
-
-    @media only screen and (max-width: 600px) {
-        position: relative;
-    }
+    margin-top: 30px;
 `;
 
 const Inner = styled.div`
     display: flex;
     flex-direction: row;
+    margin-top: 5px;
 `;
 
 const Title = styled.h5`
   font-weight: 600;
-  margin-bottom: 3px;
+  margin: auto;
+  margin-left: 5vw;
 `;
 
 export default function index() {
     return (
         <Wrapper>
-            <Title>Result</Title>
+            <Title>Result
             <Inner>
                 <Images />
                 <Denomination />
             </Inner>
+            </Title>
+            
         </Wrapper>
     )
 }
