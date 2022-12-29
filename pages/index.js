@@ -1,7 +1,7 @@
-import React from 'react'
+import React from "react";
 import styled from "styled-components";
-import Header from '../Components/Header'
-import Input from '../Components/Inputs'
+import Header from "../Components/Header";
+import Input from "../Components/Inputs";
 import Result from "../Components/Result";
 import History from "../Components/History";
 import Footer from "../Components/Footer";
@@ -22,15 +22,17 @@ const Title = styled.h1`
 
 export default function index() {
   return (
+    <>
       <Wrapper>
-      <Header/>
-      <Title>DENOMINATION OF INTERNATIONAL CURRENCY</Title>
-      <form>
-        <Input/>
-      </form> 
-      <Result/>
-      <History/>
-      <Footer />
+        <Header />
+        <Title>DENOMINATION OF INTERNATIONAL CURRENCY</Title>
+        <form>
+          <Input />
+        </form>
+        <Result />
+        <History />
+        <Footer />
       </Wrapper>
-  )
+    </>
+  );
 }

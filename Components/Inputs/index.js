@@ -53,7 +53,7 @@ export default function index() {
           <Select />
           <Title>Amount</Title>
           <Inner><Input/></Inner>
-      <Submit type="submit">
+        <Submit type="submit">
         <BText>
           Convert <Icon icon="icon-park-outline:play-cycle" />
         </BText>
