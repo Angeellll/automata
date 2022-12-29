@@ -25,7 +25,9 @@ export default function index() {
       <Wrapper>
       <Header/>
       <Title>DENOMINATION OF INTERNATIONAL CURRENCY</Title>
-      <Input/>
+      <form>
+        <Input/>
+      <form/> 
       <Result/>
       <History/>
       <Footer />
