@@ -9,7 +9,6 @@ import Footer from "../Components/Footer";
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  overflow: auto;
   min-width: 375px;
 
   @media only screen and (min-width: 400px) {
