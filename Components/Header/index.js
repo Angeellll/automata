@@ -11,7 +11,7 @@ const Wrapper = styled.div`
     top: 0;
     width: 100%;
     padding-bottom: 8px;
-    z-index: 0;
+    z-index: 1;
 
     @media only screen and (min-width: 400px) {
         display: flex;
