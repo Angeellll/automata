@@ -10,6 +10,8 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   min-width: 375px;
+  overflow-y: scroll;
+  overflow-y: hidden;
 
   @media only screen and (min-width: 400px) {
     overflow: hidden;

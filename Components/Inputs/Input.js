@@ -12,6 +12,7 @@ const InputNum = styled.input.attrs({
     font-size: 15px;
     color: gray;
     padding: 10px;
+    z-index: -1;
   
     &:focus {
       color: black;
