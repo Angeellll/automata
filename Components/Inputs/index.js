@@ -98,6 +98,7 @@ const Icon1 = styled.div`
 const Inner1 = styled.div`
   
 
+
   @media only screen and (min-width: 400px) {
     display: flex;
     flex-direction: column;
