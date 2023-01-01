@@ -96,9 +96,6 @@ const Icon1 = styled.div`
 `;
 
 const Inner1 = styled.div`
-  
-
-
   @media only screen and (min-width: 400px) {
     display: flex;
     flex-direction: column;
@@ -128,19 +125,19 @@ export default function index() {
           </Inner>
         </XWrapper>
       </Inner>
+      <form>
+        <Inner1>
+          <Title>Amount</Title>
 
-      <Inner1>
-        <Title>Amount</Title>
-        <form>
           <Input />
-        </form>
-      </Inner1>
+        </Inner1>
 
-      <Submit type="submit">
-        <BText>
-          Convert <Icon icon="icon-park-outline:play-cycle" />
-        </BText>
-      </Submit>
+        <Submit type="submit">
+          <BText>
+            Convert <Icon icon="icon-park-outline:play-cycle" />
+          </BText>
+        </Submit>
+      </form>
     </Wrapper>
   );
 }
