@@ -10,12 +10,28 @@ const Wrapper = styled.div`
     position: fixed;
     top: 0;
     width: 100%;
+    padding-bottom: 8px;
+    z-index: 1;
+
+    @media only screen and (min-width: 400px) {
+        display: flex;
+        justify-content: stretch;
+        background-color: #182467;
+        height: 70px;
+        color: #ffff;
+    }
+    
 `;
 
 const Flash = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+
+    @media only screen and (min-width: 400px) {
+        margin: auto;
+        margin-top: -5px;
+    }
 `;
 
 const List = styled.div`
@@ -23,11 +39,21 @@ const List = styled.div`
     position: fixed;
     right: 5vw;
     top: 0;
+
+    @media only screen and (min-width: 400px) {
+        position: absolute;
+        right: 2vw;
+    }
 `;
 
 const Title = styled.h1`
     font-weight: 600;
     font-size: 18px;
+
+    @media only screen and (min-width: 400px) {
+        font-weight: 600;
+        font-size: 32px;
+    }
 `;
 
 const Animation = styled.span`

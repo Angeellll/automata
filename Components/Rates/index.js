@@ -31,6 +31,15 @@ const Modal = ({ show, onClose, children, title }) => {
     height: 80vh;
     border-radius: 15px;
     padding: 15px;
+
+    @media only screen and (min-width: 400px) {
+        background: white;
+        width: 500px;
+        height: 600px;
+        border-radius: 15px;
+        padding: 15px;
+        z-index: 2;
+    }
   `;
     const StyledModalOverlay = styled.div`
     position: absolute;

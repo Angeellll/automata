@@ -10,7 +10,20 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   overflow: auto;
+  min-width: 375px;
+
+  @media only screen and (min-width: 400px) {
+    overflow: hidden;
+  }
 `;
+
+const YWrapper = styled.div`
+  @media only screen and (min-width: 400px) {
+    display: flex;
+    flex-direction: column;
+    
+  }
+`
 
 const Title = styled.h1`
   font-weight: 800;
@@ -18,6 +31,22 @@ const Title = styled.h1`
   text-align: center;
   margin-bottom: -5px;
   margin-top: 55px;
+
+  @media only screen and (min-width: 400px) {
+    display: flex;
+    font-weight: 800;
+    font-size: 32px;
+    margin: auto;
+    margin-top: 100px;
+    margin-bottom: 30px;
+  }
+`;
+
+const XWrapper = styled.div`
+  @media only screen and (min-width: 400px) {
+    display: flex;
+    flex-direction: row;
+  }
 `;
 
 export default function index() {
@@ -26,11 +55,14 @@ export default function index() {
       <Wrapper>
         <Header />
         <Title>DENOMINATION OF INTERNATIONAL CURRENCY</Title>
-        <form>
-          <Input />
-        </form>
-        <Result />
-        <History />
+        <YWrapper>
+          <XWrapper>
+            <Input />
+            <Result />
+          </XWrapper>
+          <History/>
+        </YWrapper>
+
         <Footer />
       </Wrapper>
     </>

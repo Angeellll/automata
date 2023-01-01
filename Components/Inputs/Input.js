@@ -16,6 +16,23 @@ const InputNum = styled.input.attrs({
     &:focus {
       color: black;
     }
+
+    @media only screen and (min-width: 400px) {
+      height: 8px;
+      width: 200px;
+      border-radius: 5px;
+      border: 1px solid gray;
+      font-size: 15px;
+      color: gray;
+      padding: 10px;
+      
+      &:focus {
+        color: black;
+      }
+    
+      &:hover {
+        border: 2px solid black;
+      }
   }
   `;
 
@@ -29,16 +46,46 @@ const I = styled.i`
   right: 2px;
   transform: translateY(-50%);
   color: gray;
+
+  @media only screen and (min-width: 400px) {
+    height: 1.5rem;
+    width: 1.5rem;
+    padding: 4px;
+    position: absolute;
+    box-sizing: border-box;
+    top: 45%;
+    right: -10px;
+    transform: translateY(-50%);
+    color: gray;
+    
+  
+    &:hover {
+      color: black;
+    }
+  }
 `;
 
 const Rawr = styled.div`
   position: relative;
   width: 100%;
+
+  @media only screen and (min-width: 400px) {
+    width: 200px;
+  }
 `;
 
 const Inner = styled.div`
   display: flex;
   width: 100%;
+`;
+
+const Inner1 = styled.div`
+  
+  @media only screen and (min-width: 400px) {
+    display: flex;
+    flex-direction: column;
+    right: 0;
+  }
 `;
 
 export default function Input() {
@@ -47,7 +94,7 @@ export default function Input() {
   };
 
   return (
-    <>
+    <Inner1>
       <Rawr>
         <I>
           <Icon icon="mdi:clear-outline" onClick={clear} />
@@ -56,6 +103,6 @@ export default function Input() {
           <InputNum placeholder="0.00" step=".01" id="Rawr" />
         </Inner>
       </Rawr>
-    </>
+    </Inner1>
   );
 }

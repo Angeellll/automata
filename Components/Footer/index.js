@@ -9,7 +9,9 @@ const Footer = styled.div`
     text-align: center;
     font-style: italic;
     font-size: 12px;
-    height: 18px;
+    height: fit-content;
+    padding: 8px;
+    overflow-wrap: break-word;
 `;
 
 export default function index() {
