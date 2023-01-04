@@ -55,14 +55,11 @@ const Select = styled.select`
   }
 `;
 
-export default function Dropdown() {
-  const [selected, setSelected] = useState("default");
+export default function Dropdown({ name, value, handleSelect }) {
 
   return (
     <>
-      <Select value={selected}
-      onChange={(e) => setSelected(e.target.value)}
-      >
+      <Select name={name} value={value} onChange={handleSelect}>
         <option value="default" disabled>Select Currency</option>
         <option value="PHP">Philippine Peso (PHP)</option>
         <option value="USD">US Dollar (USD)</option>

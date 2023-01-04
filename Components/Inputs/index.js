@@ -105,14 +105,18 @@ const Inner1 = styled.div`
   }
 `;
 
-export default function index() {
+export default function index({ form, onInputChange, handleSubmit }) {
   return (
     <Wrapper>
       <Inner>
         <XWrapper>
           <Inner>
             <Title>From</Title>
-            <Select />
+            <Select 
+              name="currencyFrom"
+              value={form.currencyFrom}
+              handleSelect={onInputChange}
+            />
           </Inner>
 
           <Icon1>
@@ -121,15 +125,23 @@ export default function index() {
 
           <Inner>
             <Title>To</Title>
-            <Select />
+            <Select 
+              name="currencyTo"
+              value={form.currencyTo}
+              handleSelect={onInputChange}
+            />
           </Inner>
         </XWrapper>
       </Inner>
-      <form>
+      <form onSubmit={handleSubmit}>
         <Inner1>
           <Title>Amount</Title>
 
-          <Input />
+          <Input 
+            name="amount" 
+            value={form.amount} 
+            handleChange={onInputChange} 
+          />
         </Inner1>
 
         <Submit type="submit">

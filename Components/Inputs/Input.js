@@ -65,7 +65,7 @@ const I = styled.i`
   }
 `;
 
-const Rawr = styled.div`
+const Rawr = styled.div` 
   position: relative;
   width: 100%;
 
@@ -88,7 +88,7 @@ const Inner1 = styled.div`
   }
 `;
 
-export default function Input() {
+export default function Input({ name, value, handleChange }) {
   const clear = () => {
     document.getElementById("Rawr").value = "";
   };
@@ -100,7 +100,14 @@ export default function Input() {
           <Icon icon="mdi:clear-outline" onClick={clear} />
         </I>
         <Inner>
-          <InputNum placeholder="0.00" step=".01" id="Rawr" />
+          <InputNum 
+            placeholder="0.00" 
+            step=".01" 
+            id="Rawr"
+            name={name}
+            value={value}
+            onChange={handleChange}
+          />
         </Inner>
       </Rawr>
     </Inner1>
