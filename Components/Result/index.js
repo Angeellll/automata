@@ -33,13 +33,13 @@ const Title = styled.h5`
 }
 `;
 
-export default function index() {
+export default function index({denomination, images}) {
     return (
         <Wrapper>
             <Title>Result
             <Inner>
-                <Images />
-                <Denomination />
+                <Images images={images}/>
+                <Denomination denomination={denomination}/>
             </Inner>
             </Title>
             

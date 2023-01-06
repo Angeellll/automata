@@ -11,6 +11,7 @@ const Container = styled.div`
 
     @media only screen and (min-width: 400px) {
       width: 130px;
+      margin-bottom: 100px;
     }
 `;
 
@@ -64,27 +65,14 @@ const Times = styled.h1`
 `;
 
 
-export default function denomination() {
+export default function denomination({denomination}) {
+  
   return (
     <Container>
       <Title>Denomination</Title>
       <Table>
         <tbody>
-          <tr>
-            <td>
-                <Times>x13</Times>
-            </td>
-          </tr>
-          <tr>
-            <td>
-                <Times>x2</Times>
-            </td>
-          </tr>
-          <tr>
-            <td>
-                <Times>x5</Times>
-            </td>
-          </tr>
+          {denomination}
         </tbody>
       </Table>
     </Container>

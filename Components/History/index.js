@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 import styled from "styled-components";
 
 const Wrapper = styled.div`
@@ -25,6 +26,7 @@ const Title = styled.h5`
 
   @media only screen and (min-width: 400px) {
     text-align: left;
+    margin-left: 5vw;
   }
 `;
 
@@ -42,7 +44,8 @@ const Table = styled.table`
   @media only screen and (min-width: 400px) {
     width: 100%;
     overflow-wrap: break-word;
-    margin-bottom: 0;
+    margin-left: 5vw;
+    padding-left: 20px;
   }
 `;
 
@@ -50,30 +53,16 @@ const Rawr = styled.div`
   @media only screen and (min-width: 400px) {
     display: flex;
     flex-direction: column;
-    margin: auto;
   }
 `;
 
-export default function index({ data }) {
+export default function index({ table }) {
   return (
     <Wrapper>
       <Rawr>
         <Title>History</Title>
         <Table>
-          <tbody>
-            <tr>
-              <td>
-                128.56 Philippine Peso (PHP) → US Dollar (USD) Conversion
-                12/22/2022 08:54PM
-              </td>
-            </tr>
-            <tr>
-              <td>
-                500 US Dollar (USD) → Philippine Peso (PHP) Conversion
-                12/23/2022 12:54AM
-              </td>
-            </tr>
-          </tbody>
+          <tbody>{table}</tbody>
         </Table>
       </Rawr>
     </Wrapper>

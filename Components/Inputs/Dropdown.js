@@ -1,5 +1,6 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
+import { Icon } from "@iconify/react";
 
 const Select = styled.select`
   height: 30px;
@@ -25,7 +26,6 @@ const Select = styled.select`
   }
 
   @media only screen and (min-width: 400px) {
-      
     height: 30px;
     width: 190px;
     border-radius: 5px;
@@ -35,7 +35,7 @@ const Select = styled.select`
     color: gray;
     padding: 4px;
     margin: auto;
-  
+
     option {
       color: black;
       background: white;
@@ -44,11 +44,11 @@ const Select = styled.select`
       min-height: 20px;
       padding: 0px 2px 1px;
     }
-  
+
     &:focus {
       color: black;
     }
-  
+
     &:hover {
       border: 2px solid black;
     }
@@ -56,11 +56,12 @@ const Select = styled.select`
 `;
 
 export default function Dropdown({ name, value, handleSelect }) {
-
   return (
     <>
       <Select name={name} value={value} onChange={handleSelect}>
-        <option value="default" disabled>Select Currency</option>
+        <option value="default" disabled>
+          Select Currency
+        </option>
         <option value="PHP">Philippine Peso (PHP)</option>
         <option value="USD">US Dollar (USD)</option>
         <option value="EUR">Euro (EUR)</option>

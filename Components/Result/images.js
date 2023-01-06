@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import styled from "styled-components";
 import Image from "next/image";
 import React, { useState, useCallback, useEffect } from 'react';
@@ -12,6 +13,7 @@ const Container = styled.div`
   margin-right: 2vw;
 
   @media only screen and (min-width: 400px) {
+    margin-bottom: 100px;
     flex: 3;
     margin-right: .5vw;
     border-radius: 10px;
@@ -49,7 +51,7 @@ const Table = styled.table`
   }
 `;
 
-export default function Images() {
+export default function Images({images}) {
 
   const useMediaQuery = (width) => {
     const [targetReached, setTargetReached] = useState(false);
@@ -92,21 +94,7 @@ export default function Images() {
       <Title>Currency Images</Title>
       <Table>
         <tbody>
-          <tr>
-            <td>
-              <Photo />
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <Photo />
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <Photo />
-            </td>
-          </tr>
+          {images}
         </tbody>
       </Table>
     </Container>

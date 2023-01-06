@@ -112,7 +112,7 @@ export default function index({ form, onInputChange, handleSubmit }) {
         <XWrapper>
           <Inner>
             <Title>From</Title>
-            <Select 
+            <Select
               name="currencyFrom"
               value={form.currencyFrom}
               handleSelect={onInputChange}
@@ -125,7 +125,7 @@ export default function index({ form, onInputChange, handleSubmit }) {
 
           <Inner>
             <Title>To</Title>
-            <Select 
+            <Select
               name="currencyTo"
               value={form.currencyTo}
               handleSelect={onInputChange}
@@ -137,10 +137,10 @@ export default function index({ form, onInputChange, handleSubmit }) {
         <Inner1>
           <Title>Amount</Title>
 
-          <Input 
-            name="amount" 
-            value={form.amount} 
-            handleChange={onInputChange} 
+          <Input
+            name="amount"
+            value={form.amount}
+            handleChange={onInputChange}
           />
         </Inner1>
 
