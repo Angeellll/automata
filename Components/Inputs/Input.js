@@ -99,7 +99,7 @@ export default function Input({ name, value, handleChange }) {
         </I>
         <Inner>
           <InputNum
-            placeholder="0.00"
+            placeholder="0"
             step=".01"
             id="Rawr"
             name={name}
