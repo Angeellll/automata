@@ -101,6 +101,7 @@ export default function index() {
       <Wrapper>
         <Header />
         <Title>DENOMINATION OF INTERNATIONAL CURRENCY</Title>
+        <div id="modal-root"></div>
         <YWrapper>
           <XWrapper>
             <Input
