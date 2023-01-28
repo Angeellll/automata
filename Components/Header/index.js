@@ -1,80 +1,72 @@
-import styled from "styled-components";
-import { Icon } from "@iconify/react";
-import Rates from "../Rates";
-import React, { useState } from "react";
-import Exchange_Rate from "./exchange_rate";
+import React from 'react'
+import styled from 'styled-components'
 
-const Wrapper = styled.div`
-  background-color: #182467;
-  height: 40px;
-  color: #ffff;
-  position: fixed;
-  top: 0;
-  width: 100%;
-  padding-bottom: 8px;
-  z-index: 1;
-
-  @media only screen and (min-width: 400px) {
+const Container = styled.div`
+    background-color: black;
+    left: 0;
+    right: 0;
+    position: fixed;
     display: flex;
-    justify-content: stretch;
-    background-color: #182467;
-    height: 70px;
-    color: #ffff;
-  }
-`;
+    flex-direction: row;
+    height: 100px;;
+`
 
-const Flash = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  @media only screen and (min-width: 400px) {
+const InnerContainer = styled.div`  
+    display: flex;
+    flex-direction: row;
+    width: 80%;
     margin: auto;
-    margin-top: -5px;
-  }
-`;
+    height: 100px;
+`
 
-const List = styled.div`
-  color: white;
-  position: fixed;
-  right: 5vw;
-  top: 0;
-
-  @media only screen and (min-width: 400px) {
-    position: absolute;
-    right: 2vw;
-  }
-`;
+const TextContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    margin-left: -40px;
+`
 
 const Title = styled.h1`
-  font-weight: 600;
-  font-size: 18px;
+    color: #FCF0F0;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 40px;
+    margin-top: 10px;
+`
 
-  @media only screen and (min-width: 400px) {
-    font-weight: 600;
-    font-size: 32px;
-  }
-`;
+const SubTitle = styled.h4`
+    color: #FCF0F0;
+    font-family: 'Inter';
+    font-style: italic;
+    font-weight: 400;
+    line-height: 24px;
+    margin-top: -25px;
+    margin-bottom: 10px;
+`
 
-export default function Header() {
-  const [showRate, setShowRate] = useState(false);
+const Logo = styled.img`
+    height: 180px;
+    margin-top: -47px;
+`
 
-  return (
-    <Wrapper>
-      <Flash>
-        <Title>
-          <Exchange_Rate />
-        </Title>
-      </Flash>
-      <List>
-        <Title>
-          {" "}
-          <Icon icon="gridicons:dropdown" onClick={() => setShowRate(true)} />
-          {showRate && (
-            <Rates onClose={() => setShowRate(false)} show={showRate}></Rates>
-          )}
-        </Title>
-      </List>
-    </Wrapper>
-  );
+export default function index() {
+    return (
+        <>
+        <Container>
+            <InnerContainer>
+            <Logo
+                src='/Logo.png'
+            />
+            <TextContainer>
+                <Title>
+                    INVESTUP
+                </Title>
+                <SubTitle>
+                    A currency exchange and dollar buy and sell
+                </SubTitle>
+            </TextContainer>
+            </InnerContainer>
+        </Container>
+        </>
+    )
 }
