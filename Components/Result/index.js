@@ -1,5 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
+import Images from './Images';
+import Quantity from './Quantity'
 
 const Container = styled.div`
   display: flex;
@@ -32,6 +34,7 @@ const SubTitle1 = styled.h3`
   font-size: 1vw;
   font-style: normal;
   font-weight: 500;
+  padding-right: 5px;
 `;
 
 const TitleDiv = styled.div`
@@ -68,6 +71,7 @@ const OutputContainer = styled.div`
   height: 100%;
   text-align: center;
   margin-top: -1.5vh;
+
 `
 const ImagesDiv = styled.div`
   flex: 2;
@@ -77,6 +81,11 @@ const ImagesDiv = styled.div`
 const QuantityDiv = styled.div`
   flex: 1;
   font-size: 1.4vw;
+`
+
+const Scroll = styled.div`
+flex: 1;
+font-size: 1.4vw;
 `
 
 export default function index() {
@@ -95,9 +104,11 @@ export default function index() {
       <OutputContainer>
         <ImagesDiv>
           <SubTitle>Currency Images</SubTitle>
+          <Images/>
         </ImagesDiv>
         <QuantityDiv>
         <SubTitle>Quantity</SubTitle>
+        <Quantity/>
         </QuantityDiv>
       </OutputContainer>
     </Container>

@@ -8,7 +8,7 @@ const Container = styled.div`
     position: fixed;
     display: flex;
     flex-direction: row;
-    height: 100px;;
+    height: 75px;;
 `
 
 const InnerContainer = styled.div`  
@@ -17,6 +17,7 @@ const InnerContainer = styled.div`
     width: 80%;
     margin: auto;
     height: 100px;
+    
 `
 
 const TextContainer = styled.div`
@@ -30,7 +31,7 @@ const Title = styled.h1`
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
-    font-size: 40px;
+    font-size: 30px;
     margin-top: 10px;
 `
 
@@ -45,7 +46,7 @@ const SubTitle = styled.h4`
 `
 
 const Logo = styled.img`
-    height: 180px;
+    height: 160px;
     margin-top: -47px;
 `
 

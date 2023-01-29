@@ -5,23 +5,30 @@ import Checkbox from './Checkbox'
 const CheckboxGridContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-gap: -10px;
-  padding-top: 15px;
+  padding-top: 8px;
+  justify-content:center;
+  margin-left: auto;
+  margin-right: auto;
 `
 
 const InnerWrapper = styled.div`
- display: flex;
- flex-direction: row;
- align-items: center;
- margin-top: -20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: -20px;
+  position: relative;
 `
 
-const CheckboxLabel = styled.h5`
+const CheckboxLabel = styled.h6`
   color: white;
   font-weight: 300;
   padding-left: 3px;
   padding-right: 3px;
+  align-self: center;
+  width: 30px;
+  height: 12px;
 `
+
 
 const CheckboxGrid = ({ labels, onChange }) => {
     return (

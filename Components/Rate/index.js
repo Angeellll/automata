@@ -1,5 +1,8 @@
 import React from "react";
 import styled from "styled-components";
+import Country from "./Country";
+import Buy from "./Buy"
+import Sell from "./Sell"
 
 const Container = styled.div`
   display: flex;
@@ -43,21 +46,21 @@ const Wrapper = styled.div`
   text-align: center;
   color: white;
   font-size: 1.3vw;
-`
+`;
 
 const CodeDiv = styled.div`
   flex: 2;
   border: 1px solid black;
   border-left: none;
   border-bottom: none;
-`
+`;
 
 const BuyDiv = styled.div`
   flex: 1;
   border: 1px solid black;
   border-left: none;
   border-bottom: none;
-`
+`;
 
 const SellDiv = styled.div`
   flex: 1;
@@ -65,7 +68,7 @@ const SellDiv = styled.div`
   border-left: none;
   border-right: none;
   border-bottom: none;
-`
+`;
 
 export default function index() {
   return (
@@ -75,13 +78,13 @@ export default function index() {
       </TitleDiv>
       <Wrapper>
         <CodeDiv>
-          Country Code
+          <Country />
         </CodeDiv>
         <BuyDiv>
-          Buy
+          <Buy/>
         </BuyDiv>
         <SellDiv>
-          Sell
+          <Sell/>
         </SellDiv>
       </Wrapper>
     </Container>

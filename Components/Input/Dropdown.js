@@ -4,10 +4,11 @@ import styled from "styled-components";
 const Select = styled.select`
   border-radius: 1px;
   border: 1px solid gray;
-  font-size: 15px;
+  font-size: 1.5vh;
   background: white;
   color: gray;
   padding: 4px;
+  height: 3vh;
 
   option {
     color: black;
@@ -20,6 +21,7 @@ const Select = styled.select`
 
   &:hover {
     filter: drop-shadow(2px 2px 2px rgba(255, 255, 255, 0.5));
+    cursor: pointer;
   }
 
   &:active {
