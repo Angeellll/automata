@@ -71,7 +71,7 @@ const OutputContainer = styled.div`
   height: 100%;
   text-align: center;
   margin-top: -1.5vh;
-
+  overflow: auto;
 `
 const ImagesDiv = styled.div`
   flex: 2;

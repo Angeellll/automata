@@ -40,9 +40,8 @@ const CurrencyTable = () => {
         table {
           margin: auto;
           width: 100%;
-          height: 80%;
+          
           text-align: center;
-          overflow: auto;
         }
         th {
           padding: 10px;
@@ -62,42 +61,42 @@ const CurrencyTable = () => {
         <tr>
           <td>
             <IconContainer>
-              <Title>x1</Title>
+              <Title>img1</Title>
             </IconContainer>
           </td>
         </tr>
         <tr>
           <td>
             <IconContainer>
-              <Title>x1</Title>
+              <Title>img1</Title>
             </IconContainer>
           </td>
         </tr>
         <tr>
           <td>
             <IconContainer>
-              <Title>x1</Title>
+              <Title>img1</Title>
             </IconContainer>
           </td>
         </tr>
         <tr>
           <td>
             <IconContainer>
-              <Title>x1</Title>
+              <Title>img1</Title>
             </IconContainer>
           </td>
         </tr>
         <tr>
           <td>
             <IconContainer>
-              <Title>x1</Title>
+              <Title>img1</Title>
             </IconContainer>
           </td>
         </tr>
         <tr>
           <td>
             <IconContainer>
-              <Title>x1</Title>
+              <Title>img1</Title>
             </IconContainer>
           </td>
         </tr>
