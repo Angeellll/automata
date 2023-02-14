@@ -45,11 +45,13 @@ const StyledCheckbox = styled.div`
 
 const Checkbox = ({ className, checked, onChange, value, ...props }) => {
     const [isChecked, setIsChecked] = useState(checked);
+    
     const handleChange = (event) => {
         setIsChecked(event.target.checked);
         if(onChange){
             onChange(event.target.checked, value);
         }
+        console.log(value)
     }
     return (
         <CheckboxContainer className={className}>

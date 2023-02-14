@@ -66,17 +66,6 @@ const CurrencyTable = () => {
         <tr>
           <td>
             <IconContainer>
-              <Icon icon="flagpack:ph" />
-              <Title>Philippine Peso</Title>
-              <TitleContainer>
-                <SubTitle>PHP</SubTitle>
-              </TitleContainer>
-            </IconContainer>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <IconContainer>
               <Icon icon="flagpack:us" />
               <Title>US Dollar</Title>
               <TitleContainer>
@@ -85,6 +74,18 @@ const CurrencyTable = () => {
             </IconContainer>
           </td>
         </tr>
+        <tr>
+          <td>
+            <IconContainer>
+              <Icon icon="flagpack:ph" />
+              <Title>Philippine Peso</Title>
+              <TitleContainer>
+                <SubTitle>PHP</SubTitle>
+              </TitleContainer>
+            </IconContainer>
+          </td>
+        </tr>
+
         <tr>
           <td>
             <IconContainer>
@@ -99,10 +100,10 @@ const CurrencyTable = () => {
         <tr>
           <td>
             <IconContainer>
-              <Icon icon="flagpack:gb-nir" />
-              <Title>British Pound</Title>
+              <Icon icon="flagpack:au" />
+              <Title>Australian Dollar</Title>
               <TitleContainer>
-                <SubTitle>GBP</SubTitle>
+                <SubTitle>AUD</SubTitle>
               </TitleContainer>
             </IconContainer>
           </td>
@@ -121,10 +122,10 @@ const CurrencyTable = () => {
         <tr>
           <td>
             <IconContainer>
-              <Icon icon="flagpack:tw" />
-              <Title>Taiwan N.T</Title>
+              <Icon icon="flag:eu-4x3" width="32" height="24" />
+              <Title>European Dollar</Title>
               <TitleContainer>
-                <SubTitle>TWD</SubTitle>
+                <SubTitle>EUR</SubTitle>
               </TitleContainer>
             </IconContainer>
           </td>

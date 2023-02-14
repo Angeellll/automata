@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import Button from "./Buttons";
 import Dropdown from "./Dropdown";
@@ -11,6 +11,7 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
+  height: 100%;
 `;
 
 const ButtonDiv = styled.div`
@@ -21,6 +22,8 @@ const ButtonDiv = styled.div`
   margin-right: auto;
   margin-top: 1vh;
   margin-bottom: 50px;
+  align-items: center;
+  justify-content: center;
 `;
 
 const InputWrapper = styled.div`
@@ -32,14 +35,40 @@ const InputWrapper = styled.div`
   width: 100%;
   margin-left: auto;
   margin-right: auto;
+  align-items: center;
+  justify-content: center;
 `;
 
 const InputDiv = styled.div`
   display: flex;
-  margin-top: 1vh;
-  align-items: center;
-  justify-content: center;
+  flex-direction: column;
+  text-align: left;
   width: 100%;
+  margin-top: 2px;
+  margin-bottom: 2px;
+  padding-top: auto;
+  padding-bottom: auto;
+  height: 110px;
+  justify-content: center;
+`;
+
+const InputDiv1 = styled.div`
+  display: flex;
+  margin-top: 1vh;
+  width: 90%;
+`;
+
+const InputDiv2 = styled.div`
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  width: 100%;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  padding-top: auto;
+  padding-bottom: auto;
+  height: 110px;
+  justify-content: center;
 `;
 
 const Input = styled.input.attrs({
@@ -53,6 +82,33 @@ const Input = styled.input.attrs({
   padding: 10px;
   text-align: right;
 
+  &:hover {
+    filter: drop-shadow(2px 2px 2px rgba(255, 255, 255, 0.5));
+    cursor: pointer;
+  }
+
+  &:active {
+    outline: none;
+  }
+
+  &:focus {
+    outline: none;
+  }
+`;
+
+const Input1 = styled.input.attrs({
+  type: "text",
+})`
+
+  margin-top: 1vh;
+  height: 0.3vh;
+  border-radius: 1px;
+  border: 1px solid gray;
+  font-size: 1.5vh;
+  color: gray;
+  padding: 10px;
+  text-align: center; 
+  width: 80%;
   &:hover {
     filter: drop-shadow(2px 2px 2px rgba(255, 255, 255, 0.5));
     cursor: pointer;
@@ -121,13 +177,12 @@ const CheckboxDiv = styled.div`
   margin-left: auto;
   margin-right: auto;
   margin-top: 1vw;
-  align-items: flex-start;
-  justify-content: flex-start;
-  width: 72%;
+  align-items: center;
+  justify-content: center;
+  width: 80%;
 `;
 
 const Rawr = styled.div`
-  margin-top: -30px;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: -10px;
@@ -147,90 +202,195 @@ const DetailsDiv = styled.div`
 `;
 
 const LocalDiv = styled.div`
+  position: relative;
   margin-left: auto;
-  margin-right: 0;
+  right: 0;
   padding: 10px;
   display: flex;
   justify-content: space-between
   align-items: center;
+  bottom: 0;;
 `;
 
 const History = styled.div`
+  position: absolute;
   margin-left: 0;
   margin-right: auto;
   padding: 10px;
-  margin-top: -10px;
+  bottom: 5vh;
 `;
 
-const index = () => {
+const index = ({ form, onInputChange, handleSubmit, totalAmount, currency, from, rate, date, fromCurrency }) => {
+
+  const [isBuy, setIsBuy] = useState(true);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+
+  const handleBuyClick = () => {
+    setIsBuy(true);
+  }
+
+  const handleSellClick = () => {
+    setIsBuy(false);
+  }
+
+  const handleShow = () => {
+    setIsSubmitted(true);
+  }
+  // console.log(fromCurrency + " from input")
   return (
     <Container>
-      <ButtonDiv>
-        <Button primary>BUY</Button>
-        <Button warning>SELL</Button>
-      </ButtonDiv>
-      <Rawrr>
-        <InputWrapper>
-          <InputDiv>
-            <SubTitle>Currency Code</SubTitle>
-            <Dropdown />
-          </InputDiv>
-          <InputDiv>
-            <SubTitle>Exchange Code</SubTitle>
-            <Dropdown />
-          </InputDiv>
-          <InputDiv>
-            <SubTitle>Amount</SubTitle>
-            <Input placeholder="0.00" />
-            <SubTitle>GBP</SubTitle>
-          </InputDiv>
+      <form onSubmit={handleSubmit} autocomplete="off">
+        <ButtonDiv>
+          <Button
+            primary
+            onClick={handleBuyClick}
+          >
+            BUY
+          </Button>
+          <Button
+            warning
+            onClick={handleSellClick}
+          >SELL</Button>
+        </ButtonDiv>
+        <Rawrr>
+          <InputWrapper>
+            <InputDiv1>
+              <InputDiv>
+                <InputDiv2>
+                  <SubTitle>Currency Code</SubTitle>
+                </InputDiv2>
+                <InputDiv2>
+                  <SubTitle>Exchange Code</SubTitle>
+                </InputDiv2>
+                <InputDiv2>
+                  <SubTitle>Amount</SubTitle>
+                </InputDiv2>
+              </InputDiv>
+              <InputDiv>
+                <InputDiv>
+                  <Dropdown
+                    name="currencyFrom"
+                    value={form.currencyFrom}
+                    handleSelect={onInputChange}
+                  />
+                </InputDiv>
 
-          <CheckboxDiv>
-            <SubTitle>Available denomination</SubTitle>
-            <CheckboxGrid
-              labels={[
-                "2000",
-                "100",
-                "5",
-                "0.25",
-                "1000",
-                "50",
-                "2",
-                "0.1",
-                "500",
-                "20",
-                "1",
-                "0.05",
-                "200",
-                "10",
-                "0.5",
-                "0.01",
-              ]}
-            />
+                <InputDiv>
+                  <Dropdown
+                    name="currencyTo"
+                    value={form.currencyTo}
+                    handleSelect={onInputChange}
+                  />
+                </InputDiv>
 
-            <Rawr>
-              <Button>CONVERT</Button>
-            </Rawr>
-          </CheckboxDiv>
-        </InputWrapper>
-      </Rawrr>
-      <DetailsDiv>
-        <SubTitle1>Exchange Rate Details</SubTitle1>
+                <InputDiv>
+                  <Input
+                    name="amount"
+                    value={form.amount}
+                    onChange={onInputChange}
+                    placeholder="0.00"
+                  />
+                </InputDiv>
+
+              </InputDiv>
+
+
+            </InputDiv1>
+            {/* <InputDiv>
+              <SubTitle>Currency Code</SubTitle>
+              <Dropdown
+                name="currencyFrom"
+                value={form.currencyFrom}
+                handleSelect={onInputChange}
+              />
+            </InputDiv>
+            <InputDiv>
+              <SubTitle>Exchange Code</SubTitle>
+              <Dropdown
+                name="currencyTo"
+                value={form.currencyTo}
+                handleSelect={onInputChange}
+              />
+            </InputDiv>
+            <InputDiv>
+              <SubTitle>Amount</SubTitle>
+              <Input
+                name="amount"
+                value={form.amount}
+                onChange={onInputChange}
+                placeholder="0.00"
+              />
+              <SubTitle>{fromCurrency}</SubTitle>
+            </InputDiv> */}
+
+            <CheckboxDiv>
+              <SubTitle>Available denomination</SubTitle>
+              <Input1
+                name="available"
+                value={form.available}
+                onChange={onInputChange}
+                autocomplete="off"
+              />
+              {/* <CheckboxGrid
+                name = "available"
+                value={form.available}
+                handleChange={onInputChange}
+                labels={[
+                  "2000",
+                  "100",
+                  "5",
+                  "0.25",
+                  "1000",
+                  "50",
+                  "2",
+                  "0.1",
+                  "500",
+                  "20",
+                  "1",
+                  "0.05",
+                  "200",
+                  "10",
+                  "0.5",
+                  "0.01",
+                ]}
+              /> */}
+              <submit type="submit">
+                <Rawr>
+                  <Button onClick={handleShow}>CONVERT</Button>
+                </Rawr>
+              </submit>
+            </CheckboxDiv>
+          </InputWrapper>
+        </Rawrr>
+      </form>
+
+      {isSubmitted && (
         <DetailsDiv>
-          <SubTitle1>100.00/0.555556 = 180.00 USD</SubTitle1>
-          <SubTitle1>Buy Rate = 1.80</SubTitle1>
-          <SubTitle1>Buy Comission =10.00%</SubTitle1>
-          <SubTitle1>Exchange Date = 2023 - 01 - 10 1:49PM </SubTitle1>
+          <SubTitle1>Exchange Details</SubTitle1>
+          <SubTitle1>{from} × {rate}: {totalAmount} {currency}</SubTitle1>
+          {isBuy ? (
+            <>
+              <SubTitle1>Buy Rate: 1.80</SubTitle1>
+              <SubTitle1>Buy Comission: 10.00%</SubTitle1>
+            </>
+          ) : (
+            <>
+              <SubTitle1>Sell Rate: 2.25</SubTitle1>
+              <SubTitle1>Sell Commission: 12.00%</SubTitle1>
+            </>
+          )}
+          <SubTitle1>Exchange Date: {date}</SubTitle1>
         </DetailsDiv>
-      </DetailsDiv>
+      )}
       <LocalDiv>
         <SubTitle>Local Amount</SubTitle>
-        <SubTitle2>180.00</SubTitle2>
+        <SubTitle2>{totalAmount}</SubTitle2>
       </LocalDiv>
       <History>
         <SubTitle3>Show history details</SubTitle3>
       </History>
-    </Container>
+    </Container >
+
   );
 };
 

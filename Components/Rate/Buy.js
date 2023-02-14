@@ -1,6 +1,8 @@
-import React from "react";
-import { Icon } from "@iconify/react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
+
+const CURRENCIES = ["USD", "PHP",  "HKD", "AUD", "JPY", "EUR","KRW"];
+const API_URL = "https://api.exchangerate.host/latest?base=USD&symbols=" + CURRENCIES.join(",");
 
 const IconContainer = styled.div`
   font-size: 2em;
@@ -34,13 +36,22 @@ const TitleContainer = styled.div`
 `;
 
 const CurrencyTable = () => {
+  const [exchangeRates, setExchangeRates] = useState({});
+
+  useEffect(() => {
+    fetch(API_URL)
+      .then((response) => response.json())
+      .then((data) => {
+        setExchangeRates(data.rates);
+      });
+  }, []);
+
   return (
     <table>
       <style jsx>{`
         table {
           margin: auto;
           width: 100%;
-          
           text-align: center;
         }
         th {
@@ -52,68 +63,29 @@ const CurrencyTable = () => {
           height: 45px;
         }
         tr {
-          text-align: center !important
-          
+          text-align: center !important;
         }
-        
       `}</style>
       <tbody>
         <thead>
           <tr>
-            <th> 
+            <th>
               <Rawr>Buy</Rawr>
             </th>
           </tr>
         </thead>
-        <tr>
-          <td>
-            <IconContainer>
-              <Title>#</Title>
-            </IconContainer>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <IconContainer>
-              <Title>#</Title>
-            </IconContainer>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <IconContainer>
-              <Title>#</Title>
-            </IconContainer>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <IconContainer>
-              <Title>#</Title>
-            </IconContainer>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <IconContainer>
-              <Title>#</Title>
-            </IconContainer>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <IconContainer>
-              <Title>#</Title>
-            </IconContainer>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <IconContainer>
-              <Title>#</Title>
-            </IconContainer>
-          </td>
-        </tr>
+        {CURRENCIES.map((currency) => (
+          <tr key={currency}>
+            <td>
+              <IconContainer>
+                <Title>{exchangeRates[currency]}</Title>
+                {/* <TitleContainer>
+                  <SubTitle>{currency}</SubTitle>
+                </TitleContainer> */}
+              </IconContainer>
+            </td>
+          </tr>
+        ))}
       </tbody>
     </table>
   );

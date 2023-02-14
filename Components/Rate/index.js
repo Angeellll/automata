@@ -74,7 +74,7 @@ export default function index() {
   return (
     <Container>
       <TitleDiv>
-        <Title>Realtime Exchange Rate</Title>
+        <Title>Exchange Rate</Title>
       </TitleDiv>
       <Wrapper>
         <CodeDiv>

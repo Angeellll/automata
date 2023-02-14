@@ -88,7 +88,7 @@ flex: 1;
 font-size: 1.4vw;
 `
 
-export default function index() {
+export default function index({totalAmount, currency}) {
   return (
     <Container>
       <TitleDiv>
@@ -97,9 +97,9 @@ export default function index() {
       <AmountContainer>
         <SubTitle>Input</SubTitle>
         <Amount>
-          <SubTitle1>180.00</SubTitle1>
+          <SubTitle1>{totalAmount}</SubTitle1>
         </Amount>
-        <SubTitle>USD</SubTitle>
+        <SubTitle>{currency}</SubTitle>
       </AmountContainer>
       <OutputContainer>
         <ImagesDiv>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Icon } from "@iconify/react";
 import styled from "styled-components";
 
@@ -33,7 +33,8 @@ const TitleContainer = styled.div`
   right: 0;
 `;
 
-const CurrencyTable = () => {
+const CurrencyTable = ({denominations}) => {
+  console.log(denominations)
   return (
     <table>
       <style jsx>{`
@@ -58,7 +59,10 @@ const CurrencyTable = () => {
         
       `}</style>
       <tbody>
-        <tr>
+          
+          
+
+        {/* <tr>
           <td>
             <IconContainer>
               <Title>img1</Title>
@@ -106,7 +110,7 @@ const CurrencyTable = () => {
               <Title>x1</Title>
             </IconContainer>
           </td>
-        </tr>
+        </tr> */}
       </tbody>
     </table>
   );
