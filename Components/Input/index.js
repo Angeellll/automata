@@ -220,7 +220,7 @@ const History = styled.div`
   bottom: 5vh;
 `;
 
-const index = ({ form, onInputChange, handleSubmit, totalAmount, currency, from, rate, date, fromCurrency }) => {
+const Index = ({ form, onInputChange, handleSubmit, totalAmount, currency, from, rate, date, fromCurrency }) => {
 
   const [isBuy, setIsBuy] = useState(true);
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -394,4 +394,4 @@ const index = ({ form, onInputChange, handleSubmit, totalAmount, currency, from,
   );
 };
 
-export default index;
+export default Index;

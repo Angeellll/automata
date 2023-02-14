@@ -25,7 +25,7 @@ const MainWrapper = styled.div`
 
 
 
-export default function index() {
+export default function Index() {
   const [formData, setFormData] = useState({
     currencyFrom: "PHP",
     currencyTo: "PHP",
