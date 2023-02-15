@@ -6,8 +6,7 @@ import Rate from '../Components/Rate'
 import Result from '../Components/Result'
 import styled from 'styled-components'
 import axios from "axios";
-import RenderResult from "next/dist/server/render-result";
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 
 const XContainer = styled.div`
   display: flex;
@@ -21,9 +20,6 @@ const MainWrapper = styled.div`
   margin: auto;
   height: 80vh;
 `
-
-
-
 
 export default function Index() {
   const [formData, setFormData] = useState({
@@ -43,16 +39,40 @@ export default function Index() {
   };
 
   const handleSubmit = async (event) => {
-    event.preventDefault();
-    const link = `https://currency-denomination-api.onrender.com/denomination?currency_from=${currencyFrom}&currency_to=${currencyTo}&from_value=${amount}&available_denomination=[${available}]`
-    const response = await axios.get(link,
-      {
-        headers: { "Content-Type": "application/json" },
-      }
-    );
 
-    setResult(response.data);
-    setData([...data, response.data]);
+    event.preventDefault();
+    
+    if (available === "all") {
+      const link = `https://currency-denomination-api.onrender.com/denomination?currency_from=${currencyFrom}&currency_to=${currencyTo}&from_value=${amount}&available_denomination=${available}`
+      console.log(link)
+  
+  
+      const response = await axios.get(link,
+        {
+          headers: { "Content-Type": "application/json" },
+        }
+      );
+  
+      setResult(response.data);
+      setData([...data, response.data]);
+    } else {
+      const link = `https://currency-denomination-api.onrender.com/denomination?currency_from=${currencyFrom}&currency_to=${currencyTo}&from_value=${amount}&available_denomination=[${available}]`
+      console.log(link)
+  
+  
+      const response = await axios.get(link,
+        {
+          headers: { "Content-Type": "application/json" },
+        }
+      );
+  
+      setResult(response.data);
+      setData([...data, response.data]);
+    }
+
+    
+
+
   };
 
   console.log(result)
@@ -74,6 +94,15 @@ export default function Index() {
           fromCurrency={result && result.to_denomination}
           rate={result && result.exchange_rate}
           date={result && result.date}
+          table={data.map((datas) => (
+            <tr key={datas.data}>
+              <td>
+                From {datas.from} {datas.from_value} to {datas.to}{" "}
+                {datas.to_value} <br/> Exchange Rate: {datas.exchange_rate} Date:{" "}
+                {datas.date}
+              </td>
+            </tr>
+          ))}
         />
         <Rate />
 

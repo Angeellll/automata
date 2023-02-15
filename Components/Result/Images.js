@@ -1,5 +1,4 @@
 import React from "react";
-import { Icon } from "@iconify/react";
 import styled from "styled-components";
 import Image from "next/image";
 
@@ -17,26 +16,9 @@ const Title = styled.h1`
   margin: auto;
 `;
 
-const SubTitle = styled.h1`
-  font-size: 0.5vw;
-  font-weight: 400;
-`;
-
-const Rawr = styled.h1`
-  font-size: 1vw;
-  font-weight: 400;
-  margin: auto;
-`;
-
-const TitleContainer = styled.div`
-  position: absolute;
-  top: 0;
-  right: 0;
-`;
-
 const CurrencyTable = ({ images, currency }) => {
   return (
-    <table>
+    <table  cellspacing="0">
       <style jsx>{`
         table {
           margin: auto;
@@ -49,8 +31,8 @@ const CurrencyTable = ({ images, currency }) => {
         }
         td {
           color: white;
-          height: 50px;
-          border: 1px solid red;
+          height: 80px;
+          border-top: 1px solid black;
         }
         tr {
           text-align: center !important
@@ -66,7 +48,7 @@ const CurrencyTable = ({ images, currency }) => {
               <td>
                 <IconContainer>
                   <Title>
-                    <Image src={`/${currency}${key}.png`} alt="bill" width={130} height={45} />
+                    <Image src={`/${currency}${key}.png`} alt="bill" width={170} height={70} />
                   </Title>
                 </IconContainer>
               </td>

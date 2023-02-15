@@ -9,7 +9,7 @@ const IconContainer = styled.div`
 `;
 
 const Title = styled.h1`
-  font-size: 0.7vw;
+  font-size: 1.3vw;
   margin-left: 10px;
   font-weight: 400;
   margin: auto;
@@ -18,7 +18,7 @@ const Title = styled.h1`
 const CurrencyTable = ({denominations }) => {
 
   return (
-    <table>
+    <table  cellspacing="0" >
       <style jsx>{`
         table {
           margin: auto;
@@ -30,8 +30,9 @@ const CurrencyTable = ({denominations }) => {
         }
         td {
           color: white;
-          height: 50px;
-          border: 1px solid red;
+          height: 80px;
+          border: none;
+          border-top: 1px solid black;
         }
         tr {
           text-align: center !important
@@ -45,7 +46,7 @@ const CurrencyTable = ({denominations }) => {
             <tr key={key}>
               <td>
                 <IconContainer>
-                  <Title>{denominations[key]}</Title>
+                  <Title>× {denominations[key]}</Title>
                 </IconContainer>
               </td>
             </tr>

@@ -160,12 +160,9 @@ const SubTitle2 = styled.h5`
 const SubTitle3 = styled.h5`
   color: white;
   font-family: "Inter";
-  font-weight: 500;
+  font-weight: 600;
   margin-top: 0;
   margin-bottom: 0;
-  text-decoration-line: underline;
-  font-style: italic;
-
   &:hover {
     cursor: pointer;
   }
@@ -213,21 +210,42 @@ const LocalDiv = styled.div`
 `;
 
 const History = styled.div`
-  position: absolute;
+  position: relative;
   margin-left: 0;
   margin-right: auto;
   padding: 10px;
-  bottom: 5vh;
+  height: 150px;
 `;
 
-const Index = ({ form, onInputChange, handleSubmit, totalAmount, currency, from, rate, date, fromCurrency }) => {
+const History1 = styled.div`
+  position: relative;
+  margin-left: 0;
+  margin-right: auto;
+  padding: 10px;
+  height: 150px;
+  overflow: auto;
+`;
+
+
+const Table = styled.table`
+  margin-left: 20px;
+  color: white;
+  td {
+    font-weight: 400;
+    font-style: italic;
+    font-size: 12px;
+  }
+`;
+
+
+const Index = ({ form, onInputChange, handleSubmit, totalAmount, currency, from, rate, date, table }) => {
 
   const [isBuy, setIsBuy] = useState(true);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   const handleBuyClick = () => {
     setIsBuy(true);
-    
+
   }
 
   const handleSellClick = () => {
@@ -297,32 +315,6 @@ const Index = ({ form, onInputChange, handleSubmit, totalAmount, currency, from,
 
 
             </InputDiv1>
-            {/* <InputDiv>
-              <SubTitle>Currency Code</SubTitle>
-              <Dropdown
-                name="currencyFrom"
-                value={form.currencyFrom}
-                handleSelect={onInputChange}
-              />
-            </InputDiv>
-            <InputDiv>
-              <SubTitle>Exchange Code</SubTitle>
-              <Dropdown
-                name="currencyTo"
-                value={form.currencyTo}
-                handleSelect={onInputChange}
-              />
-            </InputDiv>
-            <InputDiv>
-              <SubTitle>Amount</SubTitle>
-              <Input
-                name="amount"
-                value={form.amount}
-                onChange={onInputChange}
-                placeholder="0.00"
-              />
-              <SubTitle>{fromCurrency}</SubTitle>
-            </InputDiv> */}
 
             <CheckboxDiv>
               <SubTitle>Available Denomination</SubTitle>
@@ -332,29 +324,7 @@ const Index = ({ form, onInputChange, handleSubmit, totalAmount, currency, from,
                 onChange={onInputChange}
                 autocomplete="off"
               />
-              {/* <CheckboxGrid
-                name = "available"
-                value={form.available}
-                handleChange={onInputChange}
-                labels={[
-                  "2000",
-                  "100",
-                  "5",
-                  "0.25",
-                  "1000",
-                  "50",
-                  "2",
-                  "0.1",
-                  "500",
-                  "20",
-                  "1",
-                  "0.05",
-                  "200",
-                  "10",
-                  "0.5",
-                  "0.01",
-                ]}
-              /> */}
+
               <submit type="submit">
                 <Rawr>
                   <Button onClick={handleShow}>CONVERT</Button>
@@ -387,9 +357,14 @@ const Index = ({ form, onInputChange, handleSubmit, totalAmount, currency, from,
         <SubTitle>Local Amount</SubTitle>
         <SubTitle2>{totalAmount}</SubTitle2>
       </LocalDiv>
-      <History>
-        <SubTitle3>Show history details</SubTitle3>
-      </History>
+      {isSubmitted && ( <History>
+        <SubTitle3>History</SubTitle3>
+        <History1>
+        <Table>
+          {table}
+        </Table>
+        </History1>
+      </History> ) }
     </Container >
 
   );
