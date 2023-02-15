@@ -88,7 +88,7 @@ flex: 1;
 font-size: 1.4vw;
 `
 
-export default function index({totalAmount, currency}) {
+export default function index({images, totalAmount, currency, denominations}) {
   return (
     <Container>
       <TitleDiv>
@@ -104,11 +104,16 @@ export default function index({totalAmount, currency}) {
       <OutputContainer>
         <ImagesDiv>
           <SubTitle>Currency Images</SubTitle>
-          <Images/>
+          <Images
+            currency={currency}
+            images={images}
+          />
         </ImagesDiv>
         <QuantityDiv>
         <SubTitle>Quantity</SubTitle>
-        <Quantity/>
+        <Quantity 
+          denominations={denominations} 
+        />
         </QuantityDiv>
       </OutputContainer>
     </Container>

@@ -55,6 +55,8 @@ export default function Index() {
     setData([...data, response.data]);
   };
 
+  console.log(result)
+
   return (
     <div>
       <XContainer>
@@ -74,17 +76,12 @@ export default function Index() {
           date={result && result.date}
         />
         <Rate />
-        {/* {result && (
-          <div>
-            {JSON.stringify(result)}
-          </div>
-          
-        )} */}
 
         < Result
           totalAmount={result && result.to_value}
           currency={result && result.to}
           denominations={result && result.to_denomination}
+          images = {result && result.to_denomination}
         />
       </MainWrapper>
     </div>

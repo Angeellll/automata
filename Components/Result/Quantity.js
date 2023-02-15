@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import { Icon } from "@iconify/react";
+import React from "react";
 import styled from "styled-components";
 
 const IconContainer = styled.div`
@@ -16,32 +15,14 @@ const Title = styled.h1`
   margin: auto;
 `;
 
-const SubTitle = styled.h1`
-  font-size: 0.5vw;
-  font-weight: 400;
-`;
+const CurrencyTable = ({denominations }) => {
 
-const Rawr = styled.h1`
-  font-size: 1vw;
-  font-weight: 400;
-  margin: auto;
-`;
-
-const TitleContainer = styled.div`
-  position: absolute;
-  top: 0;
-  right: 0;
-`;
-
-const CurrencyTable = ({denominations}) => {
-  console.log(denominations)
   return (
     <table>
       <style jsx>{`
         table {
           margin: auto;
           width: 100%;
-          
           text-align: center;
         }
         th {
@@ -49,68 +30,29 @@ const CurrencyTable = ({denominations}) => {
         }
         td {
           color: white;
-          padding: 10px;
-          height: 45px;
+          height: 50px;
+          border: 1px solid red;
         }
         tr {
           text-align: center !important
-          
         }
         
       `}</style>
       <tbody>
-          
-          
 
-        {/* <tr>
-          <td>
-            <IconContainer>
-              <Title>img1</Title>
-            </IconContainer>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <IconContainer>
-              <Title>img1</Title>
-            </IconContainer>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <IconContainer>
-              <Title>img1</Title>
-            </IconContainer>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <IconContainer>
-              <Title>img1</Title>
-            </IconContainer>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <IconContainer>
-              <Title>img1</Title>
-            </IconContainer>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <IconContainer>
-              <Title>img1</Title>
-            </IconContainer>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <IconContainer>
-              <Title>x1</Title>
-            </IconContainer>
-          </td>
-        </tr> */}
+        {denominations && (
+          Object.keys(denominations).map(key => (
+            <tr key={key}>
+              <td>
+                <IconContainer>
+                  <Title>{denominations[key]}</Title>
+                </IconContainer>
+              </td>
+            </tr>
+          ))
+        )}
+
+
       </tbody>
     </table>
   );

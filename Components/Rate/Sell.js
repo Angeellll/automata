@@ -1,6 +1,9 @@
-import React from "react";
-import { Icon } from "@iconify/react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
+
+const CURRENCIES = ["USD", "PHP",  "HKD", "AUD", "JPY", "EUR","KRW"];
+const API_URL = "https://api.exchangerate.host/latest?base=USD&symbols=" + CURRENCIES.join(",");
+
 
 const IconContainer = styled.div`
   font-size: 2em;
@@ -17,10 +20,22 @@ const Rawr = styled.h1`
   font-size: 1vw;
   font-weight: 400;
   margin: auto;
+  width: 60px;
 `;
 
 
 const CurrencyTable = () => {
+
+  const [exchangeRates, setExchangeRates] = useState({});
+
+  useEffect(() => {
+    fetch(API_URL)
+      .then((response) => response.json())
+      .then((data) => {
+        setExchangeRates(data.rates);
+      });
+  }, []);
+
   return (
     <table>
       <style jsx>{`
@@ -56,55 +71,15 @@ const CurrencyTable = () => {
             </th>
           </tr>
         </thead>
-        <tr>
-          <td>
-            <IconContainer>
-              <Title>#</Title>
-            </IconContainer>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <IconContainer>
-              <Title>#</Title>
-            </IconContainer>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <IconContainer>
-              <Title>#</Title>
-            </IconContainer>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <IconContainer>
-              <Title>#</Title>
-            </IconContainer>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <IconContainer>
-              <Title>#</Title>
-            </IconContainer>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <IconContainer>
-              <Title>#</Title>
-            </IconContainer>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <IconContainer>
-              <Title>#</Title>
-            </IconContainer>
-          </td>
-        </tr>
+        {CURRENCIES.map((currency) => (
+          <tr key={currency}>
+            <td>
+              <IconContainer>
+                <Title>{exchangeRates[currency]}</Title>
+              </IconContainer>
+            </td>
+          </tr>
+        ))}
       </tbody>
     </table>
   );

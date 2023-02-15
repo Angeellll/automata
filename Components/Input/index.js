@@ -227,6 +227,7 @@ const Index = ({ form, onInputChange, handleSubmit, totalAmount, currency, from,
 
   const handleBuyClick = () => {
     setIsBuy(true);
+    
   }
 
   const handleSellClick = () => {
@@ -236,7 +237,7 @@ const Index = ({ form, onInputChange, handleSubmit, totalAmount, currency, from,
   const handleShow = () => {
     setIsSubmitted(true);
   }
-  // console.log(fromCurrency + " from input")
+
   return (
     <Container>
       <form onSubmit={handleSubmit} autocomplete="off">
@@ -324,7 +325,7 @@ const Index = ({ form, onInputChange, handleSubmit, totalAmount, currency, from,
             </InputDiv> */}
 
             <CheckboxDiv>
-              <SubTitle>Available denomination</SubTitle>
+              <SubTitle>Available Denomination</SubTitle>
               <Input1
                 name="available"
                 value={form.available}

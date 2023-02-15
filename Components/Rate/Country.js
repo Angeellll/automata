@@ -23,6 +23,8 @@ const Rawr = styled.h1`
   font-size: 1vw;
   font-weight: 400;
   margin: auto;
+  text-align: center;
+  width: 200px;
 `;
 
 const TitleContainer = styled.div`
@@ -38,10 +40,11 @@ const CurrencyTable = () => {
         table {
           margin: auto;
           width: 100%;
+          
         }
         th {
           padding: 10px;
-          text-align: center;
+          margin: auto;
 
         }
         td {

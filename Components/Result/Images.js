@@ -1,6 +1,7 @@
 import React from "react";
 import { Icon } from "@iconify/react";
 import styled from "styled-components";
+import Image from "next/image";
 
 const IconContainer = styled.div`
   font-size: 2em;
@@ -33,7 +34,7 @@ const TitleContainer = styled.div`
   right: 0;
 `;
 
-const CurrencyTable = () => {
+const CurrencyTable = ({ images, currency }) => {
   return (
     <table>
       <style jsx>{`
@@ -48,8 +49,8 @@ const CurrencyTable = () => {
         }
         td {
           color: white;
-          padding: 10px;
-          height: 45px;
+          height: 50px;
+          border: 1px solid red;
         }
         tr {
           text-align: center !important
@@ -58,55 +59,21 @@ const CurrencyTable = () => {
         
       `}</style>
       <tbody>
-        <tr>
-          <td>
-            <IconContainer>
-              <Title>img1</Title>
-            </IconContainer>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <IconContainer>
-              <Title>img1</Title>
-            </IconContainer>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <IconContainer>
-              <Title>img1</Title>
-            </IconContainer>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <IconContainer>
-              <Title>img1</Title>
-            </IconContainer>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <IconContainer>
-              <Title>img1</Title>
-            </IconContainer>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <IconContainer>
-              <Title>img1</Title>
-            </IconContainer>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <IconContainer>
-              <Title>img1</Title>
-            </IconContainer>
-          </td>
-        </tr>
+
+        {images && (
+          Object.keys(images).map(key => (
+            <tr key={key}>
+              <td>
+                <IconContainer>
+                  <Title>
+                    <Image src={`/${currency}${key}.png`} alt="bill" width={130} height={45} />
+                  </Title>
+                </IconContainer>
+              </td>
+            </tr>
+          ))
+        )}
+
       </tbody>
     </table>
   );

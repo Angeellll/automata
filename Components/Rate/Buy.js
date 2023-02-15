@@ -18,24 +18,16 @@ const Title = styled.h1`
   margin: auto;
 `;
 
-const SubTitle = styled.h1`
-  font-size: 0.5vw;
-  font-weight: 400;
-`;
-
 const Rawr = styled.h1`
   font-size: 1vw;
   font-weight: 400;
   margin: auto;
+  width: 60px;
 `;
 
-const TitleContainer = styled.div`
-  position: absolute;
-  top: 0;
-  right: 0;
-`;
 
 const CurrencyTable = () => {
+  
   const [exchangeRates, setExchangeRates] = useState({});
 
   useEffect(() => {
@@ -56,6 +48,8 @@ const CurrencyTable = () => {
         }
         th {
           padding: 10px;
+          align-items: center;
+          margin: auto;
         }
         td {
           color: white;
@@ -79,9 +73,6 @@ const CurrencyTable = () => {
             <td>
               <IconContainer>
                 <Title>{exchangeRates[currency]}</Title>
-                {/* <TitleContainer>
-                  <SubTitle>{currency}</SubTitle>
-                </TitleContainer> */}
               </IconContainer>
             </td>
           </tr>
