@@ -4,7 +4,6 @@ import styled from "styled-components";
 const CURRENCIES = ["USD", "PHP",  "HKD", "AUD", "JPY", "EUR","KRW"];
 const API_URL = "https://api.exchangerate.host/latest?base=USD&symbols=" + CURRENCIES.join(",");
 
-
 const IconContainer = styled.div`
   font-size: 2em;
   display: flex;
@@ -23,10 +22,9 @@ const Rawr = styled.h1`
   width: 60px;
 `;
 
-
 const CurrencyTable = () => {
-
   const [exchangeRates, setExchangeRates] = useState({});
+  const [colorIndex, setColorIndex] = useState(-1);
 
   useEffect(() => {
     fetch(API_URL)
@@ -36,32 +34,40 @@ const CurrencyTable = () => {
       });
   }, []);
 
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setColorIndex(Math.floor(Math.random() * CURRENCIES.length));
+    }, 5000);
+    return () => clearInterval(intervalId);
+  }, []);
+
   return (
     <table>
       <style jsx>{`
         table {
           margin: auto;
           width: 100%;
-          
           text-align: center;
         }
         th {
-            padding: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+          padding: 10px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
         }
-          
         td {
-          color: white;
           padding: 10px;
           height: 45px;
         }
         tr {
-          text-align: center !important
-          
+          text-align: center !important;
         }
-        
+        .green {
+          color: green;
+        }
+        .red {
+          color: red;
+        }
       `}</style>
       <tbody>
         <thead>
@@ -71,11 +77,11 @@ const CurrencyTable = () => {
             </th>
           </tr>
         </thead>
-        {CURRENCIES.map((currency) => (
+        {CURRENCIES.map((currency, index) => (
           <tr key={currency}>
             <td>
               <IconContainer>
-                <Title>{exchangeRates[currency]}</Title>
+                <Title className={index === colorIndex ? (exchangeRates[currency] > 1 ? 'green' : 'red') : ''}>{exchangeRates[currency]}</Title>
               </IconContainer>
             </td>
           </tr>

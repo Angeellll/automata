@@ -222,7 +222,7 @@ const History1 = styled.div`
   margin-left: 0;
   margin-right: auto;
   padding: 10px;
-  height: 150px;
+  height: 80px;
   overflow: auto;
 `;
 
@@ -341,12 +341,12 @@ const Index = ({ form, onInputChange, handleSubmit, totalAmount, currency, from,
           <SubTitle1>{from} × {rate}: {totalAmount} {currency}</SubTitle1>
           {isBuy ? (
             <>
-              <SubTitle1>Buy Rate: 1.80</SubTitle1>
+              <SubTitle1>Buy Rate: {rate}</SubTitle1>
               <SubTitle1>Buy Comission: 10.00%</SubTitle1>
             </>
           ) : (
             <>
-              <SubTitle1>Sell Rate: 2.25</SubTitle1>
+              <SubTitle1>Sell Rate: {rate}</SubTitle1>
               <SubTitle1>Sell Commission: 12.00%</SubTitle1>
             </>
           )}
